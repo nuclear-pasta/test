@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://sheetdb.io/api/v1/5uxyugigju92s')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello, World!</h1>
+      {data.map((row, index) => (
+        <div key={index}>
+          <p>{row.Column1}</p>
+          <p>{row.Column2}</p>
+        </div>
+      ))}
     </div>
   );
 }

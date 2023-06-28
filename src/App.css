@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+.App {
+  height: 100vh;
+  background-size: cover;
+  background-repeat: repeat;
+  /* transition: background-position 0.5s; This line has been added */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
